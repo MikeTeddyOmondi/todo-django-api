@@ -1,9 +1,9 @@
-FROM python:3.7-alpine
+FROM python:3.7-slim
 LABEL Company "Rancko Solutions LLC"
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apk update && python -m pip install --upgrade pip
+RUN apt-get update && python -m pip install --upgrade pip && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /src
 WORKDIR /src
